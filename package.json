@@ -1,6 +1,5 @@
 {
-  "homepage": "https://kaorihata.github.io/daily/",
-  "name": "dojo-blog",
+  "name": "daily",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
