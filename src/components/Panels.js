@@ -15,6 +15,11 @@ const Panel = styled.div`
     background: var(--yellow01);
     position: relative;
     margin: 0.75rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+    &:hover{ 
+      transform: translateY(-3px);
+    }
   }
   .card-media{
     width: 360px;
@@ -22,11 +27,6 @@ const Panel = styled.div`
       width: 360px;
       height: 300px;
       transition: all .2s ease-in-out;
-
-      &:hover{
-        filter: grayscale(30%);
-        transform: scale(1.12);
-      }
   }
     .title{
       background: #EB5E28;
@@ -73,6 +73,7 @@ const loader = css`
 `
 
 
+
 function Panels(props){
   const [News, setNews] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -100,7 +101,9 @@ function Panels(props){
       {loading ? News.map(article => 
           <div className="card">
             <a className="card-media" target="_blank" href={article.url}>
-              <img src={article.multimedia === null ? "https://via.placeholder.com/360x300.png?text=Visit+nytimes.com" : article.multimedia[0].url} alt="image" />  
+                <img src={article.multimedia === null ? 
+                  "https://via.placeholder.com/360x300.png?text=Visit+nytimes.com" : 
+                  article.multimedia[0].url} alt="image" /> 
               <div className="title">{article.title}</div>  
             </a>
             <div className="card-text">{article.abstract}</div>

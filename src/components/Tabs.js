@@ -10,6 +10,9 @@ const TabTitle = styled.h1`
   font-size: 4rem;
   font-weight: 300;
 `
+const PanelList = styled.div`
+  padding: 1rem;
+`
 
 function TabToggle(){
 
@@ -21,20 +24,23 @@ function TabToggle(){
         <Tab className="tab">Travel</Tab>
         <Tab className="tab">Health</Tab>
         <Tab className="tab">Insider</Tab>
+        <div className="line"></div>
       </TabList>
 
-      <TabPanel className="tab-panel">
-        <Panel section="food"/>
-      </TabPanel>
-      <TabPanel className="tab-panel">
-        <Panel section="travel"/>
-      </TabPanel>
-      <TabPanel className="tab-panel">
-        <Panel section="health"/>
-      </TabPanel>
-      <TabPanel className="tab-panel">
-        <Panel section="insider"/>
-      </TabPanel>
+      <PanelList>
+        <TabPanel>
+          <Panel section="food"/>
+        </TabPanel>
+        <TabPanel>
+          <Panel section="travel"/>
+        </TabPanel>
+        <TabPanel>
+          <Panel section="health"/>
+        </TabPanel>
+        <TabPanel>
+          <Panel section="insider"/>
+        </TabPanel>
+      </PanelList>
     </Tabs>
   )
 }
