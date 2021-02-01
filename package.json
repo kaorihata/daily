@@ -1,5 +1,5 @@
 {
-  "homepage": "https://github.com/kaorihata/daily",
+  "homepage": "https://kaorihata.github.io/daily/",
   "name": "dojo-blog",
   "version": "0.1.0",
   "private": true,
@@ -24,7 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
