@@ -1,7 +1,7 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import styled from '@emotion/styled'
 import './Tabs.css'
-import Panel from './Panels'
+import NewsContent from './NewsContent'
 
 /* 
   * Style
@@ -14,7 +14,7 @@ const PanelList = styled.div`
   padding: 1rem;
 `
 
-function TabToggle(){
+export default function NewsList(){
 
   return( 
     <Tabs className="tabs">
@@ -26,23 +26,20 @@ function TabToggle(){
         <Tab className="tab">Insider</Tab>
         <div className="line"></div>
       </TabList>
-
       <PanelList>
         <TabPanel>
-          <Panel section="food"/>
+          <NewsContent section="food"/>
         </TabPanel>
         <TabPanel>
-          <Panel section="travel"/>
+          <NewsContent section="travel"/>
         </TabPanel>
         <TabPanel>
-          <Panel section="health"/>
+          <NewsContent section="health"/>
         </TabPanel>
         <TabPanel>
-          <Panel section="insider"/>
+          <NewsContent section="insider"/>
         </TabPanel>
       </PanelList>
     </Tabs>
   )
 }
-
-export default TabToggle

@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 import BeatLoader from "react-spinners/BeatLoader";
 
+
 /* 
   * Style
 */
@@ -74,7 +75,7 @@ const loader = css`
 
 
 
-function Panels(props){
+export default function NewsContent(props){
   const [News, setNews] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -103,7 +104,7 @@ function Panels(props){
             <a className="card-media" target="_blank" href={article.url}>
                 <img src={article.multimedia === null ? 
                   "https://via.placeholder.com/360x300.png?text=Visit+nytimes.com" : 
-                  article.multimedia[0].url} alt="image" /> 
+                  article.multimedia[0].url} /> 
               <div className="title">{article.title}</div>  
             </a>
             <div className="card-text">{article.abstract}</div>
@@ -115,5 +116,3 @@ function Panels(props){
     </Panel>
   ) 
 }
- 
-export default Panels;
