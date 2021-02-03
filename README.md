@@ -5,7 +5,7 @@
 
 ### Description
 ---
-Daily is a news website gathering daily information from New York Times API and mainly based on food, travel, health, Insider Topics.
+Daily is a news website gathering daily information from New York Times API and mainly based on Food, Travel, Health, Insider Topics.
 <br>
 
 ### Main Features
