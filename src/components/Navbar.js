@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
-import { FiLogIn, FiUser, FiMenu } from 'react-icons/fi';
+import { FiHome, FiLogIn, FiMenu } from 'react-icons/fi';
+import { Link } from 'react-router-dom'
 
  /* 
     * Style
@@ -44,7 +45,8 @@ const Nav = styled.div`
   }
 `
 
-function Navbar(){
+
+export default function Navbar(){
   
   const handleClick = () => {
     const navList = document.querySelector('.nav-list');
@@ -53,20 +55,17 @@ function Navbar(){
    
   return (
     <Nav>
-        <button className="nav-btn" onClick={handleClick}>
-          <FiMenu style={{fontSize: '31px'}}/>
-        </button>
-        <div className="nav-list">
-          <a className="nav" href="#">
-            <FiLogIn style={{fontSize: '31px'}}/><span>LOGIN</span>
-          </a>
-          <a className="nav" href="#">
-            <FiUser style={{fontSize: '31px'}}/><span>SIGN UP</span>
-          </a>
-        </div>
+      <button className="nav-btn" onClick={handleClick}>
+        <FiMenu style={{fontSize: '31px'}}/>
+      </button>
+      <div className="nav-list">
+        <Link className="nav" to="/">
+          <FiHome style={{fontSize: '31px'}}/><span>HOME</span>
+        </Link>
+        <Link className="nav" to="/login">
+          <FiLogIn style={{fontSize: '31px'}}/><span>LOGIN</span>
+        </Link>
+      </div>
     </Nav>
   )
-
 }
-
-export default Navbar

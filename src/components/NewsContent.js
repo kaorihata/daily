@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import styled from '@emotion/styled'
-import { render } from '@testing-library/react';
+import { css } from '@emotion/core'
+import BeatLoader from "react-spinners/BeatLoader";
+
 
 /* 
   * Style
@@ -9,12 +10,17 @@ import { render } from '@testing-library/react';
 const Panel = styled.div` 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1.5rem;
-  gap: 1.5rem;
+  justify-content: center;
 
   .card{
-    background: #FFF0BF;
+    background: var(--yellow01);
     position: relative;
+    margin: 0.75rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+    &:hover{ 
+      transform: translateY(-3px);
+    }
   }
   .card-media{
     width: 360px;
@@ -22,11 +28,6 @@ const Panel = styled.div`
       width: 360px;
       height: 300px;
       transition: all .2s ease-in-out;
-
-      &:hover{
-        filter: grayscale(30%);
-        transform: scale(1.12);
-      }
   }
     .title{
       background: #EB5E28;
@@ -64,18 +65,28 @@ const Panel = styled.div`
     justify-content: center;
   }
 `
+const loader = css`
+  grid-column: 2;
+  
+  @media(max-width: 768px){
+    grid-column: 1;
+  }
+`
 
 
-function Panels(props){
+
+export default function NewsContent(props){
   const [News, setNews] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   function fetchNews(){
     const apiKey = 'Z7xEsJyfhqUdpNbCfkBh8bXxQ129cLj2'
 
-    return axios.get(`https://api.nytimes.com/svc/topstories/v2/${props.section}.json?api-key=${apiKey}`)
-    .then(res => {
-      console.log(res.data.results);
-      setNews(res.data.results)
+    return fetch(`https://api.nytimes.com/svc/topstories/v2/${props.topic}.json?api-key=${apiKey}`)
+    .then(res => res.json())
+    .then(data => {
+      setNews(data.results)
+      setLoading(true)
     })
     .catch(err => {
       console.log(err.message);
@@ -88,17 +99,20 @@ function Panels(props){
 
   return (
     <Panel>
-      {News.map(article =>     
-        <div className="card">
-          <a className="card-media" target="_blank" href={article.url}>
-            <img src={article.multimedia === null ? "https://via.placeholder.com/360x300.png?text=Visit+nytimes.com" : article.multimedia[0].url}/>  
-            <div className="title">{article.title}</div>  
-          </a>
-          <div className="card-text">{article.abstract}</div>
-        </div>
-      )}
+      {loading ? News.map(article => 
+          <div className="card">
+            <a className="card-media" target="_blank" href={article.url}>
+                <img src={article.multimedia === null ? 
+                  "https://via.placeholder.com/360x300.png?text=Visit+nytimes.com" : 
+                  article.multimedia[0].url} /> 
+              <div className="title">{article.title}</div>  
+            </a>
+            <div className="card-text">{article.abstract}</div>
+        </div>   
+      )
+      :
+      <BeatLoader css={ loader }/>
+      }
     </Panel>
   ) 
 }
- 
-export default Panels;
