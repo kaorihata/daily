@@ -26,7 +26,7 @@ export default function FormLogin(props) {
         </FormItem>
         <FormButton type="submit" />
         <FormLink>Don't have password, please 
-          <Link to="/signup" className="link" onClick={props.goSignup}> sign up</Link>
+          <Link to="/signup" className="link"> sign up</Link>
         </FormLink>
       </Form>  
     </BoxContent>

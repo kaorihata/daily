@@ -82,7 +82,7 @@ export default function NewsContent(props){
   function fetchNews(){
     const apiKey = 'Z7xEsJyfhqUdpNbCfkBh8bXxQ129cLj2'
 
-    return fetch(`https://api.nytimes.com/svc/topstories/v2/${props.section}.json?api-key=${apiKey}`)
+    return fetch(`https://api.nytimes.com/svc/topstories/v2/${props.topic}.json?api-key=${apiKey}`)
     .then(res => res.json())
     .then(data => {
       setNews(data.results)

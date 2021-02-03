@@ -28,16 +28,16 @@ export default function NewsList(){
       </TabList>
       <PanelList>
         <TabPanel>
-          <NewsContent section="food"/>
+          <NewsContent topic="food"/>
         </TabPanel>
         <TabPanel>
-          <NewsContent section="travel"/>
+          <NewsContent topic="travel"/>
         </TabPanel>
         <TabPanel>
-          <NewsContent section="health"/>
+          <NewsContent topic="health"/>
         </TabPanel>
         <TabPanel>
-          <NewsContent section="insider"/>
+          <NewsContent topic="insider"/>
         </TabPanel>
       </PanelList>
     </Tabs>
