@@ -16,13 +16,13 @@
     transition: all 0.3s ease-out;
 }
 .tab:first-child{
-    color: var(--orange02);
+    color: var(--orange01);
 }
 .line{
     position: absolute;
     height: 3px;
     width: 22%;
-    background: var(--orange02);
+    background: var(--orange01);
     left: 0;
     bottom: 0;
 }
@@ -36,5 +36,5 @@
     left: 76%;
 }
 .tab:hover{
-    color: var(--orange02);
+    color: var(--orange01);
 }

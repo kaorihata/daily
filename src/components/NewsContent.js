@@ -24,11 +24,33 @@ const Panel = styled.div`
   }
   .card-media{
     width: 360px;
-    img{
-      width: 360px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+
+    .img-layer{
+      width: 100%;
       height: 300px;
-      transition: all .2s ease-in-out;
-  }
+      transition: all .3s linear;
+
+      img{
+        width: 100%;
+        height: 300px;
+      }    
+    }
+    .img-layer::before{
+      content: "";
+      display: none;
+      height: 300px;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(200,200,200,0.2);
+      background: radial-gradient(circle, rgba(200,200,200,0.4) 0%, rgba(200,200,200,0.1) 99%);
+      
+    }
     .title{
       background: #EB5E28;
       width: calc(100% - 30px);
@@ -37,6 +59,15 @@ const Panel = styled.div`
       color: #FFFCF2;
       font-size: 1.25rem;
       position: relative;
+    }
+
+    &:hover{
+      .img-layer::before{
+        display: block;
+      }
+      .img-layer{
+        transform: scale(1.15); 
+      }
     }
   }
   .card-text{
@@ -95,16 +126,22 @@ export default function NewsContent(props){
 
   useEffect(() => {
     fetchNews()
-  },[])
+  })
 
   return (
     <Panel>
       {loading ? News.map(article => 
           <div className="card">
-            <a className="card-media" target="_blank" href={article.url}>
+            <a className="card-media" target="_blank" rel="noreferrer" href={article.url}>
+              <div className="img-layer">
                 <img src={article.multimedia === null ? 
                   "https://via.placeholder.com/360x300.png?text=Visit+nytimes.com" : 
-                  article.multimedia[0].url} /> 
+                  article.multimedia[0].url} 
+
+                  alt={article.multimedia === null ? 
+                  "no image":
+                  article.multimedia[0].caption}/> 
+                </div>
               <div className="title">{article.title}</div>  
             </a>
             <div className="card-text">{article.abstract}</div>

@@ -6,7 +6,6 @@ import Signup from './pages/Signup';
 
 export default function App() {
 
-
   return (
     <Router>
       <Navbar/>
@@ -17,7 +16,7 @@ export default function App() {
         <Route path="/login">
           <Login />
         </Route>
-        <Route path="/">
+        <Route path="/Daily">
           <Home />
         </Route>
       </Switch>
