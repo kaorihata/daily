@@ -75,15 +75,15 @@ const FormText = styled.div`
   input{
     width: 100%;
     padding: 13px 12px 10px;
-    border: 1px solid rgba(200,200,200, 0.05);
-    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
     font-size: 1.125rem;
     &::placeholder{
       color: rgba(0,0,0, 0.4);
       letter-spacing: 1px;
     }
     &:focus{
-      box-shadow: 0 2px 0 var(--orange01);
+      /* box-shadow: 0 2px 0 var(--orange01); */
+      box-shadow: inset 2px 2px 2px rgba(0,0,0,0.2);
     }
   }
   p{
@@ -119,10 +119,11 @@ const FormButton = styled.input`
   border-radius: 10px;
   font-size: 1.125rem;
   box-shadow: 0 4px 3px rgba(200,200,200,0.4);
-  transition:all 0.8s;
   margin: 1.2rem auto 0.4rem;
 
   &:hover{
+    background-color: var(--orange02);
+    background: linear-gradient(90deg,var(--orange01)  0%, var(--orange02) 100%);
   }
 `
 
