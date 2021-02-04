@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
-import { FiHome, FiLogIn, FiMenu } from 'react-icons/fi'
+import { FiHome, FiLogIn } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState } from 'react'
 import {Turn as Hamburger} from 'hamburger-react'
 
 
@@ -46,18 +46,10 @@ const Nav = styled.div`
     }
   }
 `
-
  
 
 export default function Navbar(){
   const [isOpen, setOpen] = useState(false);
-  
-  const navList = document.querySelector('.nav-list').classList;
-
-  {isOpen? 
-    navList.add('open'): 
-    navList.remove('open')
-  }
   const close = () => {
     setOpen(false);
   }
@@ -66,8 +58,8 @@ export default function Navbar(){
     <Nav>  
       <Hamburger rounded toggled={isOpen} toggle={setOpen}
       size={32} color="hsl(17, 83%, 54%)" distance="lg"/>
-      <div className="nav-list">
-        <Link className="nav" to="/" onClick={close}>
+      <div className={"nav-list " + (isOpen ? "open":"")}>
+        <Link className="nav" to="/Daily" onClick={close}>
           <FiHome style={{fontSize: '31px'}}/><span>HOME</span>
         </Link>
         <Link className="nav" to="/login" onClick={close}>

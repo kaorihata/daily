@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 export default function FormLogin(props) {
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit } = useForm();
   const onSubmit = data => console.log(data);
 
   return (

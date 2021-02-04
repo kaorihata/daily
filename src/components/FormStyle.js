@@ -33,7 +33,7 @@ const HeaderBg = styled.div`
   top: -290px;
   left: -70px;
   background: var(--orange01);
-  background: linear-gradient(90deg, var(--orange02) 0%, var(--orange01) 100%);
+  background-image: linear-gradient( 120deg, var(--orange02) 30%,  var(--orange01) 80% );
 `
 const HeaderText = styled.div`
   width: 100%;
