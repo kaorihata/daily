@@ -17,18 +17,18 @@ export default function FormSignup() {
       </HeaderText>
     </BoxHeader>
     <BoxContent>
-      <Form>
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <FormText>
-          <input name="email" placeholder="Email"/>
+          <input name="email" placeholder="Email" ref={register} />
         </FormText>
         <FormText>
-          <input name="password" placeholder="Password"/>
+          <input name="password" placeholder="Password" ref={register}/>
         </FormText>
         <FormCheck>
-          <input type="checkbox" name="check"/>
+          <input type="checkbox" name="check" ref={ register }/>
           <span>You agree to receive updates and offers from The Daily. You may opt out anytime.</span>
         </FormCheck>
-        <FormButton type="submit" onClick={e => e.preventDefault()}/>
+        <FormButton type="submit" />
         <FormLink>Already registered? 
           <Link to="/login" className="link"> Login</Link>
         </FormLink>

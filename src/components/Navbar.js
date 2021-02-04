@@ -1,6 +1,9 @@
 import styled from '@emotion/styled'
-import { FiHome, FiLogIn, FiMenu } from 'react-icons/fi';
+import { FiHome, FiLogIn, FiMenu } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
+import React, { useState, useEffect, useCallback } from 'react'
+import {Turn as Hamburger} from 'hamburger-react'
+
 
  /* 
     * Style
@@ -22,7 +25,7 @@ const Nav = styled.div`
     margin-left: -200px;
     background: none; 
     position: absolute;
-    top: 42px;
+    top: 45px;
   }
   .open{
     margin-left: 0;
@@ -43,29 +46,31 @@ const Nav = styled.div`
     }
   }
 `
+
  
 
 export default function Navbar(){
-
-  const openList = () => {
-    const navList = document.querySelector('.nav-list');
-    navList.classList.toggle('open')
-
-    setTimeout(() => {
-      navList.classList.remove('open')
-    }, 5000)
-  }
+  const [isOpen, setOpen] = useState(false);
   
+  const navList = document.querySelector('.nav-list').classList;
+
+  {isOpen? 
+    navList.add('open'): 
+    navList.remove('open')
+  }
+  const close = () => {
+    setOpen(false);
+  }
+
   return (
-    <Nav>
-      <button className="nav-btn" onClick={openList}>
-        <FiMenu style={{fontSize: '31px'}}/>
-      </button>
+    <Nav>  
+      <Hamburger rounded toggled={isOpen} toggle={setOpen}
+      size={32} color="hsl(17, 83%, 54%)" distance="lg"/>
       <div className="nav-list">
-        <Link className="nav" to="/">
+        <Link className="nav" to="/" onClick={close}>
           <FiHome style={{fontSize: '31px'}}/><span>HOME</span>
         </Link>
-        <Link className="nav" to="/login">
+        <Link className="nav" to="/login" onClick={close}>
           <FiLogIn style={{fontSize: '31px'}}/><span>LOGIN</span>
         </Link>
       </div>
