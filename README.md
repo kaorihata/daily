@@ -11,7 +11,7 @@ Daily is a news website gathering daily information from New York Times API and 
 ### Main Features
 ---
 - Retrieve the Top Stories from New York Times API.
-- Editable articles topics. [(available topics)](https://developer.nytimes.com/docs/top-stories-product/1/overview)
+- Editable article topics. [(available topics)](https://developer.nytimes.com/docs/top-stories-product/1/overview)
 - Add loading spinner while connecting to api.
 - Reusable form template.
 - Reusable tabs component.

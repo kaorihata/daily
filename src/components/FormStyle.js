@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 const Box = styled.div`
   width: 280px;
-  min-height: 550px;
+  min-height: 570px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -63,14 +63,17 @@ const BoxContent = styled.div`
 `
 
 const Form = styled.form`
-  display: grid;
-  grid-template-rows: 1fr 1fr 80px;
-  justify-content: center;
-  grid-gap: 0.5rem;
+  width: 250px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
-const FormItem = styled.div`
+const FormText = styled.div`
+  width: 100%;
+  margin-bottom: 0.4rem;
   input{
-    width: 250px;
+    width: 100%;
     padding: 13px 12px 10px;
     border: 1px solid rgba(200,200,200, 0.05);
     box-shadow: 0 1px 2px rgba(0,0,0,0.2);
@@ -88,7 +91,16 @@ const FormItem = styled.div`
     line-height: 1.6;
   }
 `
+const FormCheck = styled.div`
+  width: 100%;
+  padding: 0 5px;
+  span{
+    padding-left: 5px;
+  }
+`
 const FormLink = styled.div`
+  width: 100%;
+  padding: 0 5px;
   .link{
     color: var(--orange02);
 
@@ -98,6 +110,7 @@ const FormLink = styled.div`
   }
 `
 const FormButton = styled.input`
+  width: 100%;
   padding: 0.5rem 1.5rem;
   color: var(--white01);
   background: var(--orange01);
@@ -107,10 +120,11 @@ const FormButton = styled.input`
   font-size: 1.125rem;
   box-shadow: 0 4px 3px rgba(200,200,200,0.4);
   transition:all 0.8s;
+  margin: 1.2rem auto 0.4rem;
 
   &:hover{
   }
 `
 
 
-export {Box, BoxHeader, HeaderBg, HeaderText, BoxContent, Form, FormItem, FormLink, FormButton}
+export {Box, BoxHeader, HeaderBg, HeaderText, BoxContent, Form, FormText, FormCheck, FormLink, FormButton}
