@@ -7,23 +7,22 @@ import { Link } from 'react-router-dom'
  */
 const Nav = styled.div`
   width: 100%;
-  height: 70px;
+  height: 60px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  
+  align-items: flex-start; 
 
   .nav-btn{
     color: var(--orange01);
     padding: 0.5rem;
   }
   .nav-list{   
-    display: flex;
-    flex-direction: column;
     z-index: 999;
     transition: all .4s ease-in-out;
     margin-left: -200px;
     background: none; 
+    position: absolute;
+    top: 42px;
   }
   .open{
     margin-left: 0;
@@ -44,18 +43,22 @@ const Nav = styled.div`
     }
   }
 `
-
+ 
 
 export default function Navbar(){
-  
-  const handleClick = () => {
+
+  const openList = () => {
     const navList = document.querySelector('.nav-list');
     navList.classList.toggle('open')
+
+    setTimeout(() => {
+      navList.classList.remove('open')
+    }, 5000)
   }
-   
+  
   return (
     <Nav>
-      <button className="nav-btn" onClick={handleClick}>
+      <button className="nav-btn" onClick={openList}>
         <FiMenu style={{fontSize: '31px'}}/>
       </button>
       <div className="nav-list">

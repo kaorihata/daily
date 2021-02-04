@@ -4,11 +4,13 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 
-function App() {
+export default function App() {
+
+
   return (
     <Router>
       <Navbar/>
-      <Switch>
+      <Switch >
         <Route path="/signup">
           <Signup />
         </Route>
@@ -22,5 +24,3 @@ function App() {
     </Router>
   );
 }
-
-export default App;

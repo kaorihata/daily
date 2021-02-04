@@ -1,10 +1,11 @@
 import { useForm } from 'react-hook-form';
-import React, { useState } from 'react';
-import { Box, BoxHeader, HeaderBg, HeaderText, BoxContent, Form, FormItem, FormLink, FormButton } from './FormStyle';
+import { Box, BoxHeader, HeaderBg, HeaderText, BoxContent, Form, FormText, FormLink, FormButton } from './FormStyle';
 import { Link } from 'react-router-dom';
 
 
 export default function FormLogin(props) {
+  const { register, handleSubmit, watch, errors } = useForm();
+  const onSubmit = data => console.log(data);
 
   return (
     <Box>
@@ -17,14 +18,14 @@ export default function FormLogin(props) {
       </HeaderText>
     </BoxHeader>
     <BoxContent>
-      <Form>
-        <FormItem>
-          <input name="email" placeholder="Email"/>
-        </FormItem>
-        <FormItem>
-          <input name="password" placeholder="Password"/>
-        </FormItem>
-        <FormButton type="submit" />
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <FormText>
+          <input name="email" placeholder="Email" ref={register}/>
+        </FormText>
+        <FormText>
+          <input name="password" placeholder="Password" ref={register}/>
+        </FormText>
+        <FormButton type="submit"/>
         <FormLink>Don't have password, please 
           <Link to="/signup" className="link"> sign up</Link>
         </FormLink>
