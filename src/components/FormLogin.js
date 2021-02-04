@@ -1,5 +1,4 @@
 import { useForm } from 'react-hook-form';
-import React, { useRef } from 'react';
 import { Box, BoxHeader, HeaderBg, HeaderText, BoxContent, Form, FormText, FormLink, FormButton } from './FormStyle';
 import { Link } from 'react-router-dom';
 
