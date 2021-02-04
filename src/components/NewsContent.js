@@ -23,7 +23,7 @@ const Panel = styled.div`
     }
   }
   .card-media{
-    width: 360px;
+    width: 100%;
     position: relative;
     overflow: hidden;
     display: inline-block;
@@ -35,7 +35,7 @@ const Panel = styled.div`
       transition: all .3s linear;
 
       img{
-        width: 100%;
+        width: 360px;
         height: 300px;
       }    
     }
