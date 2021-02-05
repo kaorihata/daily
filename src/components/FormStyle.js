@@ -86,6 +86,10 @@ const FormText = styled.div`
       box-shadow: inset 2px 2px 2px rgba(0,0,0,0.2);
     }
   }
+  input:invalid{
+    background-clip: padding-box; /* Safari fix */
+    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+  }
   p{
     color: var(--orange01);
     line-height: 1.6;
@@ -126,6 +130,5 @@ const FormButton = styled.input`
     background: linear-gradient(90deg,var(--orange01)  0%, var(--orange02) 100%);
   }
 `
-
 
 export {Box, BoxHeader, HeaderBg, HeaderText, BoxContent, Form, FormText, FormCheck, FormLink, FormButton}
