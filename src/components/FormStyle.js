@@ -77,18 +77,14 @@ const FormText = styled.div`
     padding: 13px 12px 10px;
     box-shadow: 0 2px 2px rgba(0,0,0,0.2);
     font-size: 1.125rem;
+    -webkit-appearance: none;
     &::placeholder{
       color: rgba(0,0,0, 0.4);
       letter-spacing: 1px;
     }
     &:focus{
-      /* box-shadow: 0 2px 0 var(--orange01); */
       box-shadow: inset 2px 2px 2px rgba(0,0,0,0.2);
     }
-  }
-  input:invalid{
-    background-clip: padding-box; /* Safari fix */
-    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
   }
   p{
     color: var(--orange01);
