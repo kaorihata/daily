@@ -131,7 +131,7 @@ export default function NewsContent(props){
     <Panel>
       {loading ? News.map(article => 
         <div className="card">
-          <a className="card-media" target="_blank" rel="noopener" rel="noreferrer" href={article.url}>
+          <a className="card-media" target="_blank" rel="noreferrer noopener" href={article.url}>
             <div className="img-layer">
               <img src={article.multimedia === null ? 
                 "https://via.placeholder.com/360x300.png?text=Visit+nytimes.com" : 
