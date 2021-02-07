@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
+import SyncLoader from "react-spinners/SyncLoader";
 import BeatLoader from "react-spinners/BeatLoader";
+import LazyLoad from 'react-lazyload';
 
 
 /* 
@@ -96,18 +98,28 @@ const Panel = styled.div`
     justify-content: center;
   }
 `
-const loader = css`
+const NewsLoader = css`
   grid-column: 2;
   
   @media(max-width: 768px){
     grid-column: 1;
   }
 `
+const ImageLoader = css`
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--orange01);
+  background: var(--white01);
+`
 
 
 export default function NewsContent(props){
   const [News, setNews] = useState([]);
   const [loading, setLoading] = useState(false);
+  let [color, setColor] = useState("var(--orange02)");
 
   function fetchNews(){
     const apiKey = 'Z7xEsJyfhqUdpNbCfkBh8bXxQ129cLj2'
@@ -129,25 +141,27 @@ export default function NewsContent(props){
 
   return (
     <Panel>
-      {loading ? News.map(article => 
-        <div className="card">
+      {loading ? News.map((article, index) => 
+        <div className="card" key={index}>
           <a className="card-media" target="_blank" rel="noreferrer noopener" href={article.url}>
             <div className="img-layer">
-              <img src={article.multimedia === null ? 
+              <LazyLoad height={300} placeholder={<SyncLoader color={color} css={ ImageLoader }/>}>
+                <img src={article.multimedia === null ? 
                 "https://via.placeholder.com/360x300.png?text=Visit+nytimes.com" : 
                 article.multimedia[0].url} 
 
                 alt={article.multimedia === null ? 
                 "no image":
-                article.multimedia[0].caption}/> 
-              </div>
+                article.multimedia[0].caption}/>
+              </LazyLoad>
+            </div>
             <div className="title">{article.title}</div>  
           </a>
-          <div className="card-text">{article.abstract}</div>
-        </div>  
+        <div className="card-text">{article.abstract}</div>
+      </div>  
       )
       :
-      <BeatLoader css={ loader }/>
+      <BeatLoader css={ NewsLoader }/>
       }
     </Panel>
   ) 
