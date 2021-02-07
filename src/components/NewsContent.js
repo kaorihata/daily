@@ -105,7 +105,6 @@ const loader = css`
 `
 
 
-
 export default function NewsContent(props){
   const [News, setNews] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -131,21 +130,21 @@ export default function NewsContent(props){
   return (
     <Panel>
       {loading ? News.map(article => 
-          <div className="card">
-            <a className="card-media" target="_blank" rel="noreferrer" href={article.url}>
-              <div className="img-layer">
-                <img src={article.multimedia === null ? 
-                  "https://via.placeholder.com/360x300.png?text=Visit+nytimes.com" : 
-                  article.multimedia[0].url} 
+        <div className="card">
+          <a className="card-media" target="_blank" rel="noopener" rel="noreferrer" href={article.url}>
+            <div className="img-layer">
+              <img src={article.multimedia === null ? 
+                "https://via.placeholder.com/360x300.png?text=Visit+nytimes.com" : 
+                article.multimedia[0].url} 
 
-                  alt={article.multimedia === null ? 
-                  "no image":
-                  article.multimedia[0].caption}/> 
-                </div>
-              <div className="title">{article.title}</div>  
-            </a>
-            <div className="card-text">{article.abstract}</div>
-        </div>   
+                alt={article.multimedia === null ? 
+                "no image":
+                article.multimedia[0].caption}/> 
+              </div>
+            <div className="title">{article.title}</div>  
+          </a>
+          <div className="card-text">{article.abstract}</div>
+        </div>  
       )
       :
       <BeatLoader css={ loader }/>

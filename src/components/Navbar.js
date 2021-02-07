@@ -9,15 +9,17 @@ import {Turn as Hamburger} from 'hamburger-react'
     * Style
  */
 const Nav = styled.div`
-  width: 100%;
-  height: 60px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; 
+  align-items: flex-start;
+  position: fixed; 
+  top: 0;
+  z-index: 999;
+  display: block;
+  background: var(--orange01);
 
   .nav-btn{
-    color: var(--orange01);
-    padding: 0.5rem;
+    background: #000;
   }
   .nav-list{   
     z-index: 999;
@@ -54,10 +56,21 @@ export default function Navbar(){
     setOpen(false);
   }
 
+  let prevScroll = window.pageYOffset;
+  window.onscroll = function(){
+    let currentScroll = window.pageYOffset;
+    if(prevScroll > currentScroll){
+      document.querySelector('#navbar').style.top = '0';
+    } else {
+      document.querySelector('#navbar').style.top = '-50px';
+    }
+    prevScroll = currentScroll;
+  }
+
   return (
-    <Nav>  
+    <Nav id="navbar">  
       <Hamburger rounded toggled={isOpen} toggle={setOpen}
-      size={32} color="hsl(17, 83%, 54%)" distance="lg"/>
+      size={32} color="var(--white01)" distance="lg"/>
       <div className={"nav-list " + (isOpen ? "open":"")}>
         <Link className="nav" to="/Daily" onClick={close}>
           <FiHome style={{fontSize: '31px'}}/><span>HOME</span>

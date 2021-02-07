@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 const Box = styled.div`
   width: 280px;
   min-height: 570px;
-  margin: 0 auto;
+  margin: 60px auto 0;
   display: flex;
   flex-direction: column;
   border-radius: 1rem;

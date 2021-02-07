@@ -3,7 +3,7 @@
     display: grid;
     grid-template-rows: 100px 35px auto;
     justify-items: center;
-    margin: 0 auto;
+    margin: 2rem auto 0;
 }
 .tab-list{
     display: flex;

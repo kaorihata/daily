@@ -18,8 +18,8 @@ export default function NewsList(){
 
   return( 
     <Tabs className="tabs">
-      <TabTitle>Daily</TabTitle>
-      <TabList className="tab-list">      
+      <TabTitle>Daily</TabTitle>   
+      <TabList className="tab-list">    
         <Tab className="tab">Food</Tab>
         <Tab className="tab">Travel</Tab>
         <Tab className="tab">Health</Tab>
