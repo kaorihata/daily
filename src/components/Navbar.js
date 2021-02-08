@@ -59,7 +59,8 @@ export default function Navbar(){
   let prevScroll = window.pageYOffset;
   window.onscroll = function(){
     let currentScroll = window.pageYOffset;
-    if(prevScroll > currentScroll){
+    // console.log(prevScroll, currentScroll)
+    if(prevScroll > currentScroll || prevScroll < 0){
       document.querySelector('#navbar').style.top = '0';
     } else {
       document.querySelector('#navbar').style.top = '-50px';

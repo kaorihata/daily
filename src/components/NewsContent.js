@@ -5,7 +5,6 @@ import SyncLoader from "react-spinners/SyncLoader";
 import BeatLoader from "react-spinners/BeatLoader";
 import LazyLoad from 'react-lazyload';
 
-
 /* 
   * Style
 */
@@ -119,7 +118,6 @@ const ImageLoader = css`
 export default function NewsContent(props){
   const [News, setNews] = useState([]);
   const [loading, setLoading] = useState(false);
-  let [color, setColor] = useState("var(--orange02)");
 
   function fetchNews(){
     const apiKey = 'Z7xEsJyfhqUdpNbCfkBh8bXxQ129cLj2'
@@ -129,6 +127,7 @@ export default function NewsContent(props){
     .then(data => {
       setNews(data.results)
       setLoading(true)
+      // console.log(data.results[0].multimedia[0].url);
     })
     .catch(err => {
       console.log(err.message);
@@ -145,10 +144,11 @@ export default function NewsContent(props){
         <div className="card" key={index}>
           <a className="card-media" target="_blank" rel="noreferrer noopener" href={article.url}>
             <div className="img-layer">
-              <LazyLoad height={300} placeholder={<SyncLoader color={color} css={ ImageLoader }/>}>
+              <LazyLoad height={300} placeholder={<SyncLoader color="var(--orange02)" css={ ImageLoader }/>}>
                 <img src={article.multimedia === null ? 
                 "https://via.placeholder.com/360x300.png?text=Visit+nytimes.com" : 
-                article.multimedia[0].url} 
+                  article.multimedia[0].url  
+                } 
 
                 alt={article.multimedia === null ? 
                 "no image":
