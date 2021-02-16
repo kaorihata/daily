@@ -27,3 +27,9 @@ Daily is a news website gathering daily information from New York Times API and 
 - react-spinners
 - react-hook-form
 - react-router-dom
+<br>
+
+### Workflow
+---
+- [Interface Design](https://www.figma.com/file/9Ep7FByD9y8UoMQdEFybUS/DailyFood?node-id=0%3A1)
+- [Workflow Diagram](https://documentcloud.adobe.com/link/review?uri=urn:aaid:scds:US:2c10cf4e-b59c-493e-8f41-83032cf8a1d4)

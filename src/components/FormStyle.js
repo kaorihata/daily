@@ -90,6 +90,9 @@ const FormText = styled.div`
     color: var(--orange01);
     line-height: 1.6;
   }
+  span{
+    color: var(--orange01);
+  }
 `
 const FormCheck = styled.div`
   width: 100%;
