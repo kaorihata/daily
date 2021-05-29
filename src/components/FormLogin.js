@@ -1,12 +1,24 @@
-import { useForm } from 'react-hook-form';
-import { Box, BoxHeader, HeaderBg, HeaderText, BoxContent, Form, FormText, FormLink, FormButton } from './FormStyle';
+import React, { useRef, useState } from 'react';
+import { Box, BoxHeader, HeaderBg, HeaderText, BoxContent, Form, FormText, FormError, FormLink, FormButton } from './FormStyle';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 
 
-export default function FormLogin({ login }) {
-  const { register, handleSubmit, errors, reset } = useForm();
-  const onSubmit = async data => {
-    await login(data.email, data.password);
+export default function FormLogin() {
+  const emailRef = useRef()
+  const passwordRef = useRef()
+  const { login } = useAuth()
+  const [error, setError] = useState(false)
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+  
+    try {
+      setError(false)
+      await login(emailRef.current.value, passwordRef.current.value)
+    } catch {
+      setError(true)
+    }
   }
 
   return (
@@ -20,34 +32,17 @@ export default function FormLogin({ login }) {
       </HeaderText>
     </BoxHeader>
     <BoxContent>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={handleSubmit}>
+        {error ? <FormError>Invalid Email or password</FormError> : null}
         <FormText>
-          <input name="email" placeholder="Email" 
-          aria-invalid={errors.email ? "true" : "false"}
-          ref={register({
-            required: "required",
-            pattern: {
-              value: /\S+@\S+\.\S+/,
-              message: "Entered value does not match email format"
-            }
-          })}/>
-          {errors.email && <span role="alert">{errors.email.message}</span>}
+          <input name="email" placeholder="Email" ref={emailRef} required/>
         </FormText>
         <FormText>
-          <input name="password" placeholder="Password" 
-          aria-invalid={errors.password ? "true" : "false"}
-          ref={register({
-            required: "required",
-            minLength: {
-              value: 5,
-              message: "min length is 5"
-            }
-          })}/>
-          {errors.password && <span role="alert">{errors.password.message}</span>}
-        </FormText>
+          <input name="password" placeholder="Password" ref={passwordRef} required/>
+        </FormText>      
         <FormButton type="submit"/>
         <FormLink>Don't have password, please 
-          <Link to="/signup" className="link"> sign up</Link>
+          <Link to="/Daily/signup" className="link"> sign up</Link>
         </FormLink>
       </Form>  
     </BoxContent>

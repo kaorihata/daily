@@ -101,6 +101,15 @@ const FormCheck = styled.div`
     padding-left: 5px;
   }
 `
+const FormError = styled.div`
+  color: var(--orange01);
+  background: #fff;
+  box-shadow: 0px 0px 1px 3px var(--orange01);
+  width: 100%;
+  text-align: center;
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+`
 const FormLink = styled.div`
   width: 100%;
   padding: 0 5px;
@@ -130,4 +139,4 @@ const FormButton = styled.input`
   }
 `
 
-export {Box, BoxHeader, HeaderBg, HeaderText, BoxContent, Form, FormText, FormCheck, FormLink, FormButton}
+export {Box, BoxHeader, HeaderBg, HeaderText, BoxContent, Form, FormText, FormCheck, FormError, FormLink, FormButton}
