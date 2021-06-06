@@ -2,47 +2,49 @@
   * Variables
 */
 :root {
-  --orange01: hsl(17, 83%, 54%);
-  --orange02: rgba(255,174,0,1);
-  --white01: hsl(46, 100%, 97%);
-  --yellow01: hsl(46, 100%, 87%);
-  --black01: hsl(40, 4%, 14%);
+	--orange01: hsl(17, 83%, 54%);
+	--orange02: rgba(255, 174, 0, 1);
+	--white01: hsl(46, 100%, 97%);
+	--yellow01: hsl(46, 100%, 87%);
+	--black01: hsl(40, 4%, 14%);
 }
-
 
 /* 
   * Global Styles
 */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 *:focus {
-  outline: none;
+	outline: none;
 }
-input,button{
-  font-family: inherit;
-  border: none;
-  background: none;
-  outline: none;
+input,
+button {
+	font-family: inherit;
+	border: none;
+	background: none;
+	outline: none;
 }
-input[type="button"],input[type="submit"],button{
-  cursor: pointer;
+input[type='button'],
+input[type='submit'],
+button {
+	cursor: pointer;
 }
 body {
-  font-family: 'Ropa Sans', sans-serif;
-  background: var(--white01);
-  color: var(--black01);
-  line-height: 1.4;
+	font-family: 'Ropa Sans', sans-serif;
+	background: var(--white01);
+	color: var(--black01);
+	line-height: 1.4;
 }
 ul {
-  list-style: none;
+	list-style: none;
 }
 a {
-  text-decoration: none;
+	text-decoration: none;
 }
-img{
-  max-width: 100%;
-  height: auto;
+img {
+	max-width: 100%;
+	height: auto;
 }
